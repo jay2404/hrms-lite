@@ -4,8 +4,8 @@ A clean, production-ready full-stack HRMS application built with React, Node.js/
 
 ## 🚀 Live Demo
 
-- **Frontend:** `[Your Vercel URL]`
-- **Backend API:** `[Your Render URL]`
+- **Frontend:** https://hrms-lite-hazel-eta.vercel.app/
+- **Backend API:** https://hrms-lite-omzn-production.up.railway.app
 
 ---
 
@@ -17,7 +17,7 @@ A clean, production-ready full-stack HRMS application built with React, Node.js/
 | Backend | Node.js, Express.js |
 | Database | PostgreSQL |
 | Validation | express-validator |
-| Deployment | Vercel (Frontend), Render (Backend) |
+| Deployment | Vercel (Frontend), Railway (Backend + Database) |
 
 ---
 
@@ -55,7 +55,7 @@ A clean, production-ready full-stack HRMS application built with React, Node.js/
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/hrms-lite.git
+git clone https://github.com/jay2404/hrms-lite.git
 cd hrms-lite
 ```
 
@@ -112,30 +112,31 @@ The app will open at `http://localhost:3000`
 
 ## 🌐 Deployment Guide
 
-### Backend → Render
+### Backend → Railway
 
 1. Push code to GitHub
-2. Create new **Web Service** on [Render](https://render.com)
-3. Connect your GitHub repo, set root directory to `backend`
-4. Build command: `npm install`
-5. Start command: `node server.js`
+2. Go to [Railway](https://railway.app) and create a new project
+3. Click **"Deploy from GitHub repo"** and select your repo
+4. Set Root Directory to `backend`
+5. Set Start Command to `node server.js`
 6. Add environment variables:
    - `DATABASE_URL` — your PostgreSQL connection string
    - `NODE_ENV=production`
+7. Go to **Settings → Networking** and click **"Generate Domain"**
 
-### Database → Render PostgreSQL
+### Database → Railway PostgreSQL / Supabase
 
-1. Create a new **PostgreSQL** database on Render
-2. Copy the **External Database URL**
-3. Add it as `DATABASE_URL` in your backend service
+1. Create a PostgreSQL database on [Railway](https://railway.app) or [Supabase](https://supabase.com)
+2. Copy the connection string
+3. Add it as `DATABASE_URL` in your backend service environment variables
 
 ### Frontend → Vercel
 
-1. Install Vercel CLI: `npm i -g vercel`
-2. From the `frontend` directory: `vercel`
+1. Go to [Vercel](https://vercel.com) and import your GitHub repo
+2. Set Root Directory to `frontend`
 3. Add environment variable:
-   - `REACT_APP_API_URL=https://your-backend.onrender.com/api`
-4. Redeploy after setting the env var
+   - `REACT_APP_API_URL=https://hrms-lite-omzn-production.up.railway.app/api`
+4. Click Deploy
 
 ---
 
